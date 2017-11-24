@@ -17,11 +17,11 @@ import java.sql.Statement;
  */
 public final class MysqlConnect {
 
-    public Connection conn;
+    private Connection conn;
     private Statement statement;
     public static MysqlConnect db;
 
-    private MysqlConnect() {
+    public MysqlConnect() {
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "estudeAqui";
         String driver = "com.mysql.jdbc.Driver";
@@ -54,7 +54,7 @@ public final class MysqlConnect {
      * @throws SQLException
      */
     public ResultSet query(String query) throws SQLException {
-        statement = db.conn.createStatement();
+        statement = db.getConn().createStatement();
         ResultSet res = statement.executeQuery(query);
         return res;
     }
@@ -66,9 +66,13 @@ public final class MysqlConnect {
      * @throws SQLException
      */
     public int insert(String insertQuery) throws SQLException {
-        statement = db.conn.createStatement();
+        statement = db.getConn().createStatement();
         int result = statement.executeUpdate(insertQuery);
         return result;
+    }
+
+    public Connection getConn() {
+        return conn;
     }
 
 }

@@ -13,51 +13,67 @@ import java.util.Arrays;
  */
 public class Questions {
 
-    private int qtde_questions;
-    private String[][] questions;
-    private final String[] type;
-    private int correct[];
+    private String statment;
+    private String answer1;
+    private String answer2;
+    private String answer3;
+    private String answer4;
+    private String answer5;
+    private int correct;
 
-    public Questions(int qtde_questions) {
-        this.qtde_questions = qtde_questions;
-        this.questions = new String[qtde_questions][5];
-        this.type = new String[qtde_questions];
-        this.correct = new int[qtde_questions];
-    }
-    
-    public int getQtde_questions() {
-        return qtde_questions;
+    public String getStatment() {
+        return statment;
     }
 
-    public void setQtde_questions(int qtde_questions) {
-        this.qtde_questions = qtde_questions;
+    public void setStatment(String statment) {
+        this.statment = statment;
     }
 
-    public String[][] getQuestions() {
-        return questions;
+    public String getAnswer1() {
+        return answer1;
     }
 
-    public void setQuestions(String[][] questions) {
-        this.questions = questions;
+    public void setAnswer1(String answer1) {
+        this.answer1 = answer1;
     }
 
-    public int[] getCorrect() {
+    public String getAnswer2() {
+        return answer2;
+    }
+
+    public void setAnswer2(String answer2) {
+        this.answer2 = answer2;
+    }
+
+    public String getAnswer3() {
+        return answer3;
+    }
+
+    public void setAnswer3(String answer3) {
+        this.answer3 = answer3;
+    }
+
+    public String getAnswer4() {
+        return answer4;
+    }
+
+    public void setAnswer4(String answer4) {
+        this.answer4 = answer4;
+    }
+
+    public String getAnswer5() {
+        return answer5;
+    }
+
+    public void setAnswer5(String answer5) {
+        this.answer5 = answer5;
+    }
+
+    public int getCorrect() {
         return correct;
     }
 
-    public void setCorrect(int[] correct) {
+    public void setCorrect(int correct) {
         this.correct = correct;
-    }
-
-    public void showQuestion(int question_id){
-        System.out.println("Questão de Número: " + question_id);
-        System.out.println(Arrays.toString(this.questions[question_id]));
-        
-        System.out.println("Alternativas: ");
-        System.out.println("A. " + this.questions[question_id][0]);
-        System.out.println("B. " + this.questions[question_id][1]);
-        System.out.println("C. " + this.questions[question_id][2]);
-        System.out.println("D. " + this.questions[question_id][3]);
-        System.out.println("E. " + this.questions[question_id][4]);
     }
 }
