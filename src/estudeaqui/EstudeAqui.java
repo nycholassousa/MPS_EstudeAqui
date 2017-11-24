@@ -13,7 +13,7 @@ public class EstudeAqui {
     /*
         Padrões Pedido pelo professor:
     
-        Adapter: Classe de Importação de Json para o SQL - TODO
+        Adapter: Classe de Importação de Json para o SQL - FEITO
         Template: 
         Fachada: Utilizar para iniciar vários subsistemas ao mesmo tempo (iniciar sql, iniciar observer, iniciar menu) - TODO
         Fabrica:
