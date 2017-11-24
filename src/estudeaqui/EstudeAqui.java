@@ -14,9 +14,9 @@ public class EstudeAqui {
         Padrões Pedido pelo professor:
     
         Adapter: Classe de Importação de Json para o SQL - FEITO
-        Template: 
-        Fachada: Utilizar para iniciar vários subsistemas ao mesmo tempo (iniciar sql, iniciar observer, iniciar menu) - TODO
-        Fabrica:
+        Template Method: 
+        Fachada: Utilizar para iniciar vários subsistemas ao mesmo tempo (iniciar sql, iniciar observer, iniciar menu) - SEMIFEITO - Falta 1 entidade e testes unitarios
+        FactoryMethod/Abstract Factory:
         Command: Relatorio de Respostas do Usuário - FEITO: Salvando em PDF ou exibindo no programa
         Memento: Refazer todo o questionário ou desfazer questao respondida - TODO
     */
@@ -25,7 +25,7 @@ public class EstudeAqui {
     /*
         Padrões Propostos no Projeto:
     
-        Singleton: Conexão MySQL - Done
+        Singleton: Conexão MySQL - FEITO
         Observer: Quando a quantidade de questoes do mysql mudar, o usuário seria notificado no email - TODO
         Iterator: Para ficar indo para questão anterior ou posterior - TODO
         ???: TODO

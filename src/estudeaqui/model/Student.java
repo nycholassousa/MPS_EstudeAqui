@@ -9,13 +9,13 @@ package estudeaqui.model;
  *
  * @author nycho
  */
-public class Client {
+public class Student {
 
     private String email;
     private String password;
     private final int admin;
 
-    public Client(String email, String password) {
+    public Student(String email, String password) {
         this.email = email;
         this.password = password;
         this. admin = 0; //Caso seja administrador, o usuário ficará com admin = 1 -> Essa alteração está disponivel apenas via MySQL
