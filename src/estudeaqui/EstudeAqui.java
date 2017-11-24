@@ -17,7 +17,7 @@ public class EstudeAqui {
         Template: 
         Fachada: Utilizar para iniciar vários subsistemas ao mesmo tempo (iniciar sql, iniciar observer, iniciar menu) - TODO
         Fabrica:
-        Command: Relatorio de Respostas do Usuário - TODO
+        Command: Relatorio de Respostas do Usuário - FEITO: Salvando em PDF ou exibindo no programa
         Memento: Refazer todo o questionário ou desfazer questao respondida - TODO
     */
     
