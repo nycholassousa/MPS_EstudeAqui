@@ -1,5 +1,8 @@
 package estudeaqui.model;
 
+import estudeaqui.util.MysqlConnect;
+import java.sql.SQLException;
+
 public class Student {
 
     
@@ -7,6 +10,7 @@ public class Student {
     private String email;
     private String password;
     private int admin;
+    private MysqlConnect mysql;
 
     private Student(String email, String password, int admin) {
         this.email = email;
@@ -18,28 +22,16 @@ public class Student {
         return new Student(email, password, admin);
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmail() throws SQLException {
+        return mysql.query("SELECT email FROM users").getString(1);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getPassword() throws SQLException {
+        return mysql.query("SELECT password FROM users").getString(1);
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(int admin) {
-        this.admin = admin;
+    public int getAdmin() throws SQLException {
+        return mysql.query("SELECT admin FROM users").getInt(1);
     }
 
 }
