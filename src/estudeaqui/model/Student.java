@@ -2,14 +2,20 @@ package estudeaqui.model;
 
 public class Student {
 
+    
+
     private String email;
     private String password;
-    private final int admin;
+    private int admin;
 
-    public Student(String email, String password) {
+    private Student(String email, String password, int admin) {
         this.email = email;
         this.password = password;
-        this. admin = 0; //Caso seja administrador, o usuário ficará com admin = 1 -> Essa alteração está disponivel apenas via MySQL
+        this.admin = admin; //Caso seja administrador, o usuário ficará com admin = 1 -> Essa alteração está disponivel apenas via MySQL
+    }
+    
+    private static Student createStudent(String email, String password, int admin) {
+        return new Student(email, password, admin);
     }
 
     public String getEmail() {
@@ -26,6 +32,14 @@ public class Student {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
     }
 
 }

@@ -13,6 +13,21 @@ public class Questions {
     private String answer5;
     private int correct;
 
+    private Questions(String statment, String type, String answer1, String answer2, String answer3, String answer4, String answer5, int correct) {
+        this.statment = statment;
+        this.type = type;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+        this.answer5 = answer5;
+        this.correct = correct;
+    }
+    
+    public static Questions createQuestion(String statment, String type, String answer1, String answer2, String answer3, String answer4, String answer5, int correct) {
+        return new Questions(statment, type, answer1, answer2, answer3, answer4, answer5, correct);
+    }
+
     public String getStatment() {
         return statment;
     }
