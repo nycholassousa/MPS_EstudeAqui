@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package estudeaqui.model;
 
 import java.util.Arrays;
 
-/**
- *
- * @author nycho
- */
 public class Questions {
 
     private String statment;
+    private String type;
     private String answer1;
     private String answer2;
     private String answer3;
@@ -27,6 +19,13 @@ public class Questions {
 
     public void setStatment(String statment) {
         this.statment = statment;
+    }
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getAnswer1() {

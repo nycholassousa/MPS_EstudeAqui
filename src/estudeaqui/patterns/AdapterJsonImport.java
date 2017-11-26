@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package estudeaqui.patterns;
 
 import estudeaqui.util.MysqlConnect;
@@ -14,25 +9,21 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-/**
- *
- * @author nycholas
- */
-
 /*
 Json Example:
 
 {
 "Questoes": {
-   "statement" : "É extraido da seringueira",
+    "statement" : "É extraido da seringueira",
+     "type" : "humanas",
 
-    "answer1": "Chocolate donut",
-    "answer2": "Malte",
-    "answer3": "Latex",
-    "answer4": "Leite",
-    "answer5": "Laca Vegetal",
+     "answer1": "Chocolate donut",
+     "answer2": "Malte",
+     "answer3": "Latex",
+     "answer4": "Leite",
+     "answer5": "Laca Vegetal",
 
-    "correct": 2
+     "correct": 2
 }
 
  */
@@ -55,6 +46,8 @@ public class AdapterJsonImport {
             
             String statement = (String) itemize.get("statement");
             preparedStatement.setString(1, statement);
+            String type = (String) itemize.get("type");
+            preparedStatement.setString(1, type);
             String answer1 = (String) itemize.get("answer1");
             preparedStatement.setString(2, answer1);
             String answer2 = (String) itemize.get("answer2");

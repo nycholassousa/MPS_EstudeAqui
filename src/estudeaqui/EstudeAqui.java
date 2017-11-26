@@ -1,24 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package estudeaqui;
 
-/**
- *
- * @author nycho
- */
 public class EstudeAqui {
     /*
         Padrões Pedido pelo professor:
     
         Adapter: Classe de Importação de Json para o SQL - FEITO
-        Template Method: 
+        Template Method: Ordenar questoes por tipo - FEITO
         Fachada: Utilizar para iniciar vários subsistemas ao mesmo tempo (iniciar sql, iniciar observer, iniciar menu) - SEMIFEITO - Falta 1 entidade e testes unitarios
         FactoryMethod/Abstract Factory:
         Command: Relatorio de Respostas do Usuário - FEITO: Salvando em PDF ou exibindo no programa
-        Memento: Refazer todo o questionário ou desfazer questao respondida - TODO
+        Memento: Refazer todo o questionário - TODO
     */
     
     
