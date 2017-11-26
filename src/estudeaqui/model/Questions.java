@@ -1,5 +1,7 @@
 package estudeaqui.model;
 
+import estudeaqui.util.MysqlConnect;
+import java.sql.SQLException;
 import java.util.Arrays;
 
 public class Questions {
@@ -12,6 +14,7 @@ public class Questions {
     private String answer4;
     private String answer5;
     private int correct;
+    private MysqlConnect mysql;
 
     private Questions(String statment, String type, String answer1, String answer2, String answer3, String answer4, String answer5, int correct) {
         this.statment = statment;
@@ -23,71 +26,41 @@ public class Questions {
         this.answer5 = answer5;
         this.correct = correct;
     }
-    
+
     public static Questions createQuestion(String statment, String type, String answer1, String answer2, String answer3, String answer4, String answer5, int correct) {
         return new Questions(statment, type, answer1, answer2, answer3, answer4, answer5, correct);
     }
 
-    public String getStatment() {
-        return statment;
+    public String getStatment() throws SQLException {
+        return mysql.query("SELECT statment FROM questions").getString(1);
     }
 
-    public void setStatment(String statment) {
-        this.statment = statment;
-    }
-    public String getType() {
-        return type;
+    public String getType() throws SQLException {
+        return mysql.query("SELECT type FROM questions").getString(1);
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public String getAnswer1() throws SQLException {
+        return mysql.query("SELECT answer1 FROM questions").getString(1);
     }
 
-    public String getAnswer1() {
-        return answer1;
+    public String getAnswer2() throws SQLException {
+        return mysql.query("SELECT answer2 FROM questions").getString(1);
     }
 
-    public void setAnswer1(String answer1) {
-        this.answer1 = answer1;
+    public String getAnswer3() throws SQLException {
+        return mysql.query("SELECT answer3 FROM questions").getString(1);
     }
 
-    public String getAnswer2() {
-        return answer2;
+    public String getAnswer4() throws SQLException {
+        return mysql.query("SELECT answer4 FROM questions").getString(1);
     }
 
-    public void setAnswer2(String answer2) {
-        this.answer2 = answer2;
+    public String getAnswer5() throws SQLException {
+        return mysql.query("SELECT answer5 FROM questions").getString(1);
     }
 
-    public String getAnswer3() {
-        return answer3;
-    }
+    public int getCorrect() throws SQLException {
+        return mysql.query("SELECT correct FROM questions").getInt(1);
 
-    public void setAnswer3(String answer3) {
-        this.answer3 = answer3;
-    }
-
-    public String getAnswer4() {
-        return answer4;
-    }
-
-    public void setAnswer4(String answer4) {
-        this.answer4 = answer4;
-    }
-
-    public String getAnswer5() {
-        return answer5;
-    }
-
-    public void setAnswer5(String answer5) {
-        this.answer5 = answer5;
-    }
-
-    public int getCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(int correct) {
-        this.correct = correct;
     }
 }
