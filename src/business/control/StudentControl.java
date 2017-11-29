@@ -58,4 +58,8 @@ public class StudentControl {
     public static ArrayList<Student> getStudents() {
         return students;
     }
+    
+    public static void clear(){
+    	students.clear();
+    }
 }

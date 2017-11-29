@@ -7,14 +7,11 @@ public class Validator {
 
     public static boolean validateEmail(String login) throws LoginValidationException {
         int size = login.length();
-        if (size > 32) {
-            throw new LoginValidationException("Login invalido: comprimento superior a 32");
+        if (size > 20) {
+            throw new LoginValidationException("Login invalido: comprimento superior a 20");
         }
         if (login.equals("")) {
             throw new LoginValidationException("Login invalido: login vazio");
-        }
-        if (login.matches(".*\\d.*")) {
-            throw new LoginValidationException("Login invalido: login possui digito");
         }
 
         return true; //Usado para o teste unitario
