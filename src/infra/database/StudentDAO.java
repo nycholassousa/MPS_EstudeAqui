@@ -8,7 +8,7 @@ import java.util.List;
 
 public class StudentDAO {
 
-    public List<Student> search() throws Exception {
+    public List<Student> saveStudentsList() throws Exception {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT email, password");
         sql.append("FROM students");

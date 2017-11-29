@@ -10,14 +10,14 @@ import com.mysql.jdbc.MySQLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Main {
-
+public class Main {    
+    
     /* Padroes de Projeto propostos pelo professor:
     Adapter: Usado para importar um arquivo JSON ou CSV para o Mysql - FEITO
     Template Method: Relatorios de user/admin - TODO
     Fachada: Iniciar o observer - TODO
     Factory Method/Abstract Factory: Pacote business.control.questions.factory, arquivo QuestionsFactory - FEITO, precisa melhorar/revisar, acho
-    Command: Responder Questionario - TODO
+    Command: Responder Questionario, business.control.command, necesário fazer Composite - TODO
     Memento: 
      */
 
@@ -32,7 +32,7 @@ public class Main {
     RF001: Usuário Admin - FEITO, função setAccess na classe StudentControl
     RF002: Relatório de Admininistrador
     RF003: Cadastro de Usuário - FEITO, função addStudent na classe StudentControl
-    RF004: Exibir Questionários
+    RF004: Exibir Questionários/Responder Questionário
     RF005: Relatório de Usuário
     RF006: Login de Usuário - FEITO, classe StudentControl
     RF007: Notificação de novas questões
@@ -41,13 +41,6 @@ public class Main {
     RF010: Passar Questão
      */
     
-    /* Coisas feitas até o momento:
-    * Conexão Mysql, conexão funciona normalmente, dados são adicionados e pesquisados normalmente.
-    * Criação da Tabela e da Classe responsável pelo usuário
-    * Criação da Tabela e da Classe responsável pelas questões
-    
-    
-     */
     public static void main(String[] args) throws StudentNotExistException, SQLException {
         MysqlConnect mysql = MysqlConnect.getDbCon();
         //mysql.insert("INSERT INTO `students` (`email`, `password`, `page_admin`) VALUES ('email@email.email', '123', '0')");

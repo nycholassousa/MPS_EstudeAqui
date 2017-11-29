@@ -3,12 +3,13 @@ package infra.database;
 import business.model.questions.Questions;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionsDAO {
 
-    public List<Questions> search() throws Exception {
+    public List<Questions> saveQuestionsList() throws Exception {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT statment, alternative1, alternative2, alternative3, alternative4, alternative5, correct");
         sql.append("FROM questions");
@@ -42,5 +43,17 @@ public class QuestionsDAO {
         sqlCommand.close();
 
         return questionsList;
+    }
+
+    public int questionsSize() throws SQLException {
+        int size = 0;
+        MysqlConnect mysql = MysqlConnect.getDbCon();
+        ResultSet result = mysql.query("SELECT * FROM `questions`;");
+        
+        if (result.next()){
+            size = size++;
+        }
+        
+        return size;
     }
 }

@@ -7,9 +7,12 @@ import business.model.exceptions.PasswordValidationException;
 import business.model.student.Student;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class StudentControl {
+
+    private static ArrayList<Student> students = new ArrayList<Student>();
 
     public static void addStudent(String email, String password, int admin) {
         try {
@@ -17,15 +20,22 @@ public class StudentControl {
             Validator.validateEmail(email);
             Validator.validatePassword(password);
             mysql.insert("INSERT INTO `students` (`email`, `password`, `page_admin`) VALUES ('" + email + "', '" + password + "', '" + admin + "');");
+            Student student = new Student(email, password, admin);
+            students.add(student);
         } catch (LoginValidationException | PasswordValidationException | SQLException lve) {
             JOptionPane.showMessageDialog(null, lve.getMessage());
         }
     }
 
-    public static ResultSet getStudent(String email, String password) throws StudentNotExistException {
+    public static Student getStudent(String email) throws StudentNotExistException {
         try {
             MysqlConnect mysql = MysqlConnect.getDbCon();
-            return mysql.query("SELECT * FROM `students` WHERE email = '" + email + "' and password = '" + password + "';");
+            ResultSet result = mysql.query("SELECT * FROM `students` WHERE email = '" + email + ";");
+            Student student = new Student();
+            while (result.next()) {
+                student = new Student(email, result.getString("password"), Integer.parseInt(result.getString("admin")));
+            }
+            return student;
         } catch (SQLException error) {
             System.out.println("Error: " + error);
         }
@@ -41,17 +51,15 @@ public class StudentControl {
         }
     }
 
-    public static void loginStudent(String email, String password) throws SQLException {
-        try {
-            ResultSet res = getStudent(email, password);
-            Student student = new Student();
-            while(res.next()){
-                student.setEmail(res.getString(email));
-                student.setPassword(res.getString(password));
-            }
-            student.login(email, password);
-        } catch (StudentNotExistException ex) {
-            System.out.println("This user do not exist.");
+    public static String listAllStudents() throws SQLException { //Deve-se deixar mais generico
+        MysqlConnect mysql = MysqlConnect.getDbCon();
+        ResultSet result = mysql.query("SELECT * FROM `students`;");
+        String list = "";
+
+        while (result.next()) {
+            list += "Email: " + result.getString("email") + "\nPassword: " + result.getString("email") + "\n\n";
         }
+
+        return list;
     }
 }
