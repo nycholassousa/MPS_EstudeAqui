@@ -9,7 +9,7 @@ import java.util.List;
 
 public class QuestionsDAO {
 
-    public List<Questions> saveQuestionsList() throws Exception {
+    public static List<Questions> saveQuestionsList() throws Exception {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT statment, alternative1, alternative2, alternative3, alternative4, alternative5, correct");
         sql.append("FROM questions");
