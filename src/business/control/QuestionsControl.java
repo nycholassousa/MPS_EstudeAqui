@@ -1,6 +1,6 @@
 package business.control;
 
-import business.control.util.MysqlConnect;
+import infra.database.MysqlConnect;
 import business.model.exceptions.QuestionNotExistException;
 import business.model.questions.Questions;
 import java.sql.ResultSet;

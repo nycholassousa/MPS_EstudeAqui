@@ -2,7 +2,7 @@ package business.control.questions.factory;
 
 import infra.adapter.AdapterImport;
 import infra.adapter.JsonImport;
-import business.control.util.MysqlConnect;
+import infra.database.MysqlConnect;
 import business.model.questions.Questions;
 import java.sql.SQLException;
 

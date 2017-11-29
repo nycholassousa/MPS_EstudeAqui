@@ -44,6 +44,7 @@ public class JsonImport implements AdapterImport {
             question.setAlternative4((String) itemize.get("alternative4"));
             question.setAlternative5((String) itemize.get("alternative5"));
             question.setCorrect((String) itemize.get("correct"));
+            return question;
 
         } catch (IOException e) {
             try {
@@ -54,6 +55,6 @@ public class JsonImport implements AdapterImport {
         } catch (ParseException ex) {
             Logger.getLogger(JsonImport.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return question;
+        return null;
     }
 }

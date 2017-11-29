@@ -65,4 +65,10 @@ public class Questions {
     public void setCorrect(String correct) {
         this.correct = correct;
     }
+
+    public String getInfo() {
+        return "Statment: " + this.statment + "\nAlternative 1: " + this.alternative1 + "\nAlternative 2: " + this.alternative2 + ""
+                + "\nAlternative 3: " + this.alternative3 + "\nAlternative 4: " + this.alternative4 + "\nAlternative 5: " + this.alternative5 + ""
+                + "Correct: " + this.correct;
+    }
 }

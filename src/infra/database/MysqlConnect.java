@@ -1,4 +1,4 @@
-package business.control.util;
+package infra.database;
 
 import java.sql.*;
 import java.sql.DriverManager;

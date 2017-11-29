@@ -3,7 +3,7 @@ package view;
 import business.control.StudentControl;
 import infra.adapter.AdapterImport;
 import infra.adapter.JsonImport;
-import business.control.util.MysqlConnect;
+import infra.database.MysqlConnect;
 import business.model.exceptions.StudentNotExistException;
 import business.model.student.Student;
 import com.mysql.jdbc.MySQLConnection;
@@ -13,11 +13,11 @@ import java.sql.SQLException;
 public class Main {
 
     /* Padroes de Projeto propostos pelo professor:
-    Adapter: Usado para importar um arquivo JSON para o Mysql - FEITO, adicionar outro modo (CSV)?
-    Template Method: 
-    Fachada: Iniciar o observer
-    Factory Method/Abstract Factory: Pacote business.control.questions.factory, arquivo QuestionsFactory - FEITO, precisa melhorar, acho
-    Command: Usar para mostrar relatório - TODO
+    Adapter: Usado para importar um arquivo JSON ou CSV para o Mysql - FEITO
+    Template Method: Relatorios de user/admin - TODO
+    Fachada: Iniciar o observer - TODO
+    Factory Method/Abstract Factory: Pacote business.control.questions.factory, arquivo QuestionsFactory - FEITO, precisa melhorar/revisar, acho
+    Command: Responder Questionario - TODO
     Memento: 
      */
 
@@ -25,7 +25,7 @@ public class Main {
     Singleton: Usado na classe MysqlConnect - FEITO
     Observer: Verificar se o valor no arquivo no sistema bate com o valor da db_config, caso bata, ok, senao, dar aviso ao usuario
     State: Pacote business.mode.student.state - FEITO, precisa analisar melhor
-    DAO: 
+    DAO: Pacote business.database - FEITO
      */
     
     /* RFs:

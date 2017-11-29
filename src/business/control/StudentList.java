@@ -1,6 +1,6 @@
 package business.control;
 
-import business.control.util.MysqlConnect;
+import infra.database.MysqlConnect;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

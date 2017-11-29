@@ -1,6 +1,9 @@
 package business.model.student;
 
+import business.control.Validator;
 import business.model.exceptions.InvalidLoginException;
+import business.model.exceptions.LoginValidationException;
+import business.model.exceptions.PasswordValidationException;
 import business.model.student.state.*;
 
 public class Student {
@@ -11,9 +14,9 @@ public class Student {
     private LoginState login;
     private LogoutState logout;
     private StudentState state;
-    
-    public Student(){
-        
+
+    public Student() {
+
     }
 
     public Student(String email, String password, int admin) {
@@ -30,16 +33,8 @@ public class Student {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public boolean login(String login_argument, String password_argument) throws InvalidLoginException {
@@ -61,5 +56,27 @@ public class Student {
 
     public void set_state(StudentState state) {
         this.state = state;
+    }
+
+    public void setEmail(String email) {
+        try {
+            Validator.validateEmail(email);
+            this.email = email;
+        } catch (LoginValidationException uve) {
+            System.out.println(uve.getMessage());
+        }
+    }
+
+    public void setPassword(String password) {
+        try {
+            Validator.validatePassword(password);
+            this.password = password;
+        } catch (PasswordValidationException uve) {
+            System.out.println(uve.getMessage());
+        }
+    }
+
+    public String getInfo() {
+        return "Email: " + this.email + "\nPassword: " + this.password;
     }
 }
