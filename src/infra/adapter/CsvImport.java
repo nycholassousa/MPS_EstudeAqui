@@ -5,6 +5,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/*
+Example of CSV to import:
+
+É extraido da seringueira,Chocolate donut,Malte,Latex,Leite,Laca Vegetal,2
+*/
+
 public class CsvImport implements AdapterImport {
 
     @Override

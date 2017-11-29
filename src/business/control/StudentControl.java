@@ -1,12 +1,9 @@
 package business.control;
 
-import infra.database.MysqlConnect;
 import business.model.exceptions.StudentNotExistException;
 import business.model.exceptions.LoginValidationException;
 import business.model.exceptions.PasswordValidationException;
 import business.model.student.Student;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,28 +13,21 @@ public class StudentControl {
 
     public static void addStudent(String email, String password, int admin) {
         try {
-            MysqlConnect mysql = MysqlConnect.getDbCon();
             Validator.validateEmail(email);
             Validator.validatePassword(password);
-            mysql.insert("INSERT INTO `students` (`email`, `password`, `page_admin`) VALUES ('" + email + "', '" + password + "', '" + admin + "');");
             Student student = new Student(email, password, admin);
             getStudents().add(student);
-        } catch (LoginValidationException | PasswordValidationException | SQLException lve) {
+        } catch (LoginValidationException | PasswordValidationException lve) {
             JOptionPane.showMessageDialog(null, lve.getMessage());
         }
     }
 
     public static Student getStudent(String email) throws StudentNotExistException {
-        try {
-            MysqlConnect mysql = MysqlConnect.getDbCon();
-            ResultSet result = mysql.query("SELECT * FROM `students` WHERE email = '" + email + ";");
-            Student student = new Student();
-            while (result.next()) {
-                student = new Student(email, result.getString("password"), Integer.parseInt(result.getString("admin")));
+        for (int i = 0; i < students.size(); i++) {
+            Student student = students.get(i);
+            if (student.getEmail().equals(email)) {
+                return student;
             }
-            return student;
-        } catch (SQLException error) {
-            System.out.println("Error: " + error);
         }
         return null;
     }
@@ -46,29 +36,22 @@ public class StudentControl {
         try {
             Student student = getStudent(email);
             student.login(email, password);
-        } catch (StudentNotExistException error) {
-            System.out.println("User do not exists");
+        } catch (StudentNotExistException ex) {
+            System.out.println("This user do not exist");
         }
     }
 
     public void setAccess(int access, String email) throws StudentNotExistException {
-        try {
-            MysqlConnect mysql = MysqlConnect.getDbCon();
-            mysql.insert("UPDATE `students` SET `page_admin` = " + access + " where `email` = '" + email + "';");
-        } catch (SQLException error) {
-            System.out.println("Error: " + error);
-        }
+        Student student = getStudent(email);
+        student.setAdmin(access);
     }
 
-    public static String listAllStudents() throws SQLException { //Deve-se deixar mais generico
-        MysqlConnect mysql = MysqlConnect.getDbCon();
-        ResultSet result = mysql.query("SELECT * FROM `students`;");
+    public static String listAllStudents(){
         String list = "";
-
-        while (result.next()) {
-            list += "Email: " + result.getString("email") + " | Password: " + result.getString("email") + "\n";
+        
+        for(Student student : students){
+            list += student.getInfo();
         }
-
         return list;
     }
 

@@ -13,7 +13,7 @@ public class LogoutState implements StudentState {
     @Override
     public void login(String login, String password) {
         System.out.println("You're logged in your account");
-        student.set_state(student.getLoginState());
+        student.setState(student.getLoginState());
     }
 
     @Override

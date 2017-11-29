@@ -1,14 +1,17 @@
 package business.model.answers;
 
+import business.model.student.Student;
 import java.util.ArrayList;
 
 public class AnswersComposite implements AnswersComponent {
 
+    private Student student;
     private String name;
     private ArrayList<AnswersComponent> component;
     private ArrayList<Answers> questions_answereds;
 
-    public AnswersComposite(String name) {
+    public AnswersComposite(Student student, String name) {
+        this.student = student;
         this.name = name;
         this.component = new ArrayList<AnswersComponent>();
         this.questions_answereds = new ArrayList<Answers>();

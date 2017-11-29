@@ -1,16 +1,16 @@
-package business.control.command;
+package business.control.commands;
 
 import business.model.answers.Answers;
 import business.model.answers.AnswersComponent;
 import business.model.answers.AnswersComposite;
 import business.model.exceptions.InvalidTypeException;
 
-public class addAnswerCommand implements Command {
+public class RemoveAnswerCommand implements Command {
 
     private AnswersComponent component;
     private Object object;
 
-    public addAnswerCommand(AnswersComponent component, Object object) {
+    public RemoveAnswerCommand(AnswersComponent component, Object object) {
         this.component = component;
         this.object = object;
     }
@@ -19,9 +19,9 @@ public class addAnswerCommand implements Command {
     public void execute() {
         if (object instanceof AnswersComponent) {
             AnswersComposite composite = (AnswersComposite) component;
-            composite.addComponent((AnswersComponent) object);
+            composite.deleteComponent((AnswersComponent) object);
         } else if (object instanceof Answers) {
-            component.addAnswers((Answers) object);
+            component.removeAnswer((Answers) object);
         } else {
             throw new InvalidTypeException("Error: Invalid Type of Object");
         }

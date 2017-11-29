@@ -1,4 +1,4 @@
-package business.control.command;
+package business.control.commands;
 
 public interface Command {
 

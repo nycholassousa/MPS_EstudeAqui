@@ -5,10 +5,7 @@ import business.control.QuestionsControl;
 import business.control.StudentControl;
 import business.model.answers.Answers;
 import business.model.questions.Questions;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ReportAdmin extends ReportTemplate {
 
@@ -25,12 +22,8 @@ public class ReportAdmin extends ReportTemplate {
         QuestionsControl.getAllQuestions();
         questions = QuestionsControl.getQuestions();
         total_questions = questions.size();
-        
-        try {
-            studentList = StudentControl.listAllStudents();
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        studentList = StudentControl.listAllStudents();
 
         for (int i = 0; i < answers.size(); i++) {
             if (answers.get(i).getAnswers() == Integer.parseInt(questions.get(i).getCorrect())) {

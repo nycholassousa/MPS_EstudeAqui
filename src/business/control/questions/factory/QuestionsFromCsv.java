@@ -6,7 +6,7 @@ import infra.adapter.CsvImport;
 import infra.database.MysqlConnect;
 import java.sql.SQLException;
 
-public class QuestionsFromCsv {
+public class QuestionsFromCsv implements QuestionsFactory{
 
     public Questions createQuestion(String importFile) throws SQLException {
         try {

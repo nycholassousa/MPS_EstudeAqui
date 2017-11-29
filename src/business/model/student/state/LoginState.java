@@ -18,6 +18,6 @@ public class LoginState implements StudentState {
     @Override
     public void logout() {
         System.out.println("You're now logged out");
-        student.set_state(student.getLogoutState());
+        student.setState(student.getLogoutState());
     }
 }
