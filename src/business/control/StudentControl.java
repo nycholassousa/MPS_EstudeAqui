@@ -42,6 +42,15 @@ public class StudentControl {
         return null;
     }
 
+    public static void loginStudent(String email, String password) {
+        try {
+            Student student = getStudent(email);
+            student.login(email, password);
+        } catch (StudentNotExistException error) {
+            System.out.println("User do not exists");
+        }
+    }
+
     public void setAccess(int access, String email) throws StudentNotExistException {
         try {
             MysqlConnect mysql = MysqlConnect.getDbCon();
