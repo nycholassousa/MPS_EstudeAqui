@@ -39,5 +39,9 @@ public class Answers {
     public void setAnswers(int answers) {
         this.answers = answers;
     }
+    
+    public String getInfo(){
+        return "ID Student: " + this.idStudent + " | ID Question: " + this.idQuestion + " | Answer: " + this.answers;
+    }
 
 }

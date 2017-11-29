@@ -5,7 +5,6 @@ import business.control.QuestionsControl;
 import business.control.StudentControl;
 import business.model.answers.Answers;
 import business.model.questions.Questions;
-import business.model.student.Student;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
