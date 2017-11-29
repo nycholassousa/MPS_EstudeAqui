@@ -66,7 +66,7 @@ public class StudentControl {
         String list = "";
 
         while (result.next()) {
-            list += "Email: " + result.getString("email") + "\nPassword: " + result.getString("email") + "\n\n";
+            list += "Email: " + result.getString("email") + " | Password: " + result.getString("email") + "\n";
         }
 
         return list;

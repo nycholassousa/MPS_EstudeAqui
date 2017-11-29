@@ -44,16 +44,4 @@ public class QuestionsDAO {
 
         return questionsList;
     }
-
-    public int questionsSize() throws SQLException {
-        int size = 0;
-        MysqlConnect mysql = MysqlConnect.getDbCon();
-        ResultSet result = mysql.query("SELECT * FROM `questions`;");
-
-        if (result.next()) {
-            size = size++;
-        }
-
-        return size;
-    }
 }
