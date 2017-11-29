@@ -16,7 +16,7 @@ public class InvalidLoginException extends RuntimeException{
     }
     
     public InvalidLoginException(){
-        this("Erro: Invalid Login");
+        this("Error: Invalid Login");
     }
     
 }

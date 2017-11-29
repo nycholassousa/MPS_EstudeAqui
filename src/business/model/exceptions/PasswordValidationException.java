@@ -11,7 +11,7 @@ package business.model.exceptions;
  */
 public class PasswordValidationException extends Exception{
     public PasswordValidationException(){
-        super("Erro de validação na senha");
+        super("Error on Validate Password");
     }
     
     public PasswordValidationException(String s){

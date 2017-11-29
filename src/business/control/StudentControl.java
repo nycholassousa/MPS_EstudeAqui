@@ -21,7 +21,7 @@ public class StudentControl {
             Validator.validatePassword(password);
             mysql.insert("INSERT INTO `students` (`email`, `password`, `page_admin`) VALUES ('" + email + "', '" + password + "', '" + admin + "');");
             Student student = new Student(email, password, admin);
-            students.add(student);
+            getStudents().add(student);
         } catch (LoginValidationException | PasswordValidationException | SQLException lve) {
             JOptionPane.showMessageDialog(null, lve.getMessage());
         }
@@ -61,5 +61,9 @@ public class StudentControl {
         }
 
         return list;
+    }
+
+    public static ArrayList<Student> getStudents() {
+        return students;
     }
 }

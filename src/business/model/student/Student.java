@@ -37,9 +37,9 @@ public class Student {
         return password;
     }
 
-    public boolean login(String login_argument, String password_argument) throws InvalidLoginException {
-        if (this.login.equals(login_argument) && this.password.equals(password_argument)) {
-            state.login(email, password);
+    public boolean login(String email, String password) throws InvalidLoginException {
+        if (this.email.equals(email) && this.password.equals(password)) {
+            state.login(this.email, this.password);
             return true;
         } else {
             throw new InvalidLoginException();
