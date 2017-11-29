@@ -4,7 +4,7 @@ import business.control.StudentControl;
 import business.control.adapter.AdapterImport;
 import business.control.adapter.JsonImport;
 import business.control.util.MysqlConnect;
-import business.model.exception.StudentNotExistException;
+import business.model.exceptions.StudentNotExistException;
 import business.model.student.Student;
 import com.mysql.jdbc.MySQLConnection;
 import java.sql.ResultSet;
@@ -15,28 +15,28 @@ public class Main {
     /* Padroes de Projeto propostos pelo professor:
     Adapter: Usado para importar um arquivo JSON para o Mysql - FEITO, adicionar outro modo (CSV)?
     Template Method: 
-    Fachada: 
+    Fachada: Iniciar o observer
     Factory Method/Abstract Factory: Pacote business.control.questions.factory, arquivo QuestionsFactory - FEITO, precisa melhorar, acho
-    Command: 
+    Command: Usar para mostrar relatório - TODO
     Memento: 
      */
 
     /* Padroes adicionais propostos:
     Singleton: Usado na classe MysqlConnect - FEITO
-    Observer: 
+    Observer: Verificar se o valor no arquivo no sistema bate com o valor da db_config, caso bata, ok, senao, dar aviso ao usuario
     State: Pacote business.mode.student.state - FEITO, precisa analisar melhor
     DAO: 
      */
     
-    /* RF Feitos:
-    RF001: Usuário Admin - Feito, função setAccess na classe Student
-    RF002: Relatório de Admin
-    RF003: Cadastro de Usuário - Feito, construtor na classe Student
+    /* RFs:
+    RF001: Usuário Admin - FEITO, função setAccess na classe StudentControl
+    RF002: Relatório de Admininistrador
+    RF003: Cadastro de Usuário - FEITO, função addStudent na classe StudentControl
     RF004: Exibir Questionários
     RF005: Relatório de Usuário
-    RF006: Login de Usuário - Feito, classe StudentControl
-    RF007: Notificação
-    RF008: Importar Questões - Feito, usando Adapter para importar Json
+    RF006: Login de Usuário - FEITO, classe StudentControl
+    RF007: Notificação de novas questões
+    RF008: Importar Questões - FEITO, usando Adapter para importar Json
     RF009: Ordenar por tipos - RF será cancelado, ajustar no doc
     RF010: Passar Questão
      */

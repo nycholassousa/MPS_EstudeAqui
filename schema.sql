@@ -14,7 +14,7 @@ ALTER TABLE `students`
   ADD UNIQUE KEY `email` (`email`);
   
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
   
 -- --------------------------------------------------------
 
@@ -37,6 +37,35 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
   
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
   
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `answers_students`
+--
+
+CREATE TABLE `answers_students` (
+  `id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `student_answer` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `answers_students`
+  ADD PRIMARY KEY (`id`);
+  
+ALTER TABLE `answers_students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+  
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `dbconfig`
+--
+
+CREATE TABLE `dbconfig` (
+  `questions_size` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------

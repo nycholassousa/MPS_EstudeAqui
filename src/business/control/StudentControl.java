@@ -1,7 +1,7 @@
 package business.control;
 
 import business.control.util.MysqlConnect;
-import business.model.exception.StudentNotExistException;
+import business.model.exceptions.StudentNotExistException;
 import business.model.exceptions.LoginValidationException;
 import business.model.exceptions.PasswordValidationException;
 import business.model.student.Student;
