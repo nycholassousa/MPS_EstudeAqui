@@ -2,7 +2,7 @@ package business.model.student.state;
 
 import business.model.student.Student;
 
-public class LoginState implements StudentState{
+public class LoginState implements StudentState {
 
     private Student student;
 

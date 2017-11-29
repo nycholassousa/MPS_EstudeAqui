@@ -49,11 +49,11 @@ public class QuestionsDAO {
         int size = 0;
         MysqlConnect mysql = MysqlConnect.getDbCon();
         ResultSet result = mysql.query("SELECT * FROM `questions`;");
-        
-        if (result.next()){
+
+        if (result.next()) {
             size = size++;
         }
-        
+
         return size;
     }
 }

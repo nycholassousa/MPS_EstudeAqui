@@ -2,13 +2,14 @@ package business.model.student.state;
 
 import business.model.student.Student;
 
-public class LogoutState implements StudentState{
+public class LogoutState implements StudentState {
+
     private Student student;
-    
-    public LogoutState(Student student){
+
+    public LogoutState(Student student) {
         this.student = student;
     }
-    
+
     @Override
     public void login(String login, String password) {
         System.out.println("You're logged in your account");

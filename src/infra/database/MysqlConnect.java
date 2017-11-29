@@ -63,7 +63,7 @@ public final class MysqlConnect {
         return result;
 
     }
-    
+
     public Connection getConn() {
         return conn;
     }

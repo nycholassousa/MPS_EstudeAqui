@@ -9,12 +9,12 @@ public class Questions {
     private String alternative4;
     private String alternative5;
     private String correct;
-    
-    public Questions(){
-        
+
+    public Questions() {
+
     }
-    
-    public Questions(String statment, String alternative1, String alternative2, String alternative3, String alternative4, String alternative5, String correct){
+
+    public Questions(String statment, String alternative1, String alternative2, String alternative3, String alternative4, String alternative5, String correct) {
         this.statment = statment;
         this.alternative1 = alternative1;
         this.alternative2 = alternative2;
