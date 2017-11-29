@@ -1,18 +1,18 @@
-package estudeaqui.util;
+package business.control.util;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
+/**
+ * @desc A singleton database access class for MySQL
+ */
 public final class MysqlConnect {
 
-    private Connection conn;
+    public Connection conn;
     private Statement statement;
     public static MysqlConnect db;
 
-    public MysqlConnect() {
+    private MysqlConnect() {
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "estudeAqui";
         String driver = "com.mysql.jdbc.Driver";
@@ -35,6 +35,7 @@ public final class MysqlConnect {
             db = new MysqlConnect();
         }
         return db;
+
     }
 
     /**
@@ -45,7 +46,7 @@ public final class MysqlConnect {
      * @throws SQLException
      */
     public ResultSet query(String query) throws SQLException {
-        statement = db.getConn().createStatement();
+        statement = db.conn.createStatement();
         ResultSet res = statement.executeQuery(query);
         return res;
     }
@@ -57,11 +58,12 @@ public final class MysqlConnect {
      * @throws SQLException
      */
     public int insert(String insertQuery) throws SQLException {
-        statement = db.getConn().createStatement();
+        statement = db.conn.createStatement();
         int result = statement.executeUpdate(insertQuery);
         return result;
-    }
 
+    }
+    
     public Connection getConn() {
         return conn;
     }

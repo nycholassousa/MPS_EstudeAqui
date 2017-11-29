@@ -1,0 +1,13 @@
+{
+	"Questoes": {
+		"statement" : "É extraido da seringueira",
+
+		 "alternative1": "Chocolate donut",
+		 "alternative2": "Malte",
+		 "alternative3": "Latex",
+		 "alternative4": "Leite",
+		 "alternative5": "Laca Vegetal",
+
+		 "correct": "2"
+	}
+}
