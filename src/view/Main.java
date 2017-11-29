@@ -1,8 +1,8 @@
 package view;
 
 import business.control.StudentControl;
-import business.control.adapter.AdapterImport;
-import business.control.adapter.JsonImport;
+import infra.adapter.AdapterImport;
+import infra.adapter.JsonImport;
 import business.control.util.MysqlConnect;
 import business.model.exceptions.StudentNotExistException;
 import business.model.student.Student;

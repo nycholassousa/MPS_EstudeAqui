@@ -69,3 +69,13 @@ CREATE TABLE `dbconfig` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
+
+--
+-- Limitadores para a tabela `answers_students`
+--
+
+ALTER TABLE `answers_students`
+  ADD CONSTRAINT `answers_students_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `answers_students_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  
+-- --------------------------------------------------------

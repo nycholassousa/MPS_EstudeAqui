@@ -1,4 +1,4 @@
-package business.control.adapter;
+package infra.adapter;
 
 import business.model.questions.Questions;
 import java.io.FileReader;
