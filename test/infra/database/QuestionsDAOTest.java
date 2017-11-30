@@ -1,5 +1,6 @@
 package infra.database;
 
+import infra.database.reader.QuestionsDAOReader;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -27,12 +28,12 @@ public class QuestionsDAOTest {
     }
 
     /**
-     * Test of saveQuestionsList method, of class MusicDAO.
+     * Test of loadQuestions method, of class MusicDAO.
      */
     @Test
     public void testBuscar() throws Exception {
         System.out.println("saveQuestionsList");
-        QuestionsDAO musicDAO = new QuestionsDAO();
-        musicDAO.saveQuestionsList();
+        QuestionsDAOReader musicDAO = new QuestionsDAOReader();
+        musicDAO.loadQuestions();
     }
 }

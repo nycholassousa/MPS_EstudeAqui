@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class AnswersComposite implements AnswersComponent {
 
-    private Student student;
+    public Student student;
     private String name;
     private ArrayList<AnswersComponent> component;
     private ArrayList<Answers> questions_answereds;
@@ -40,6 +40,11 @@ public class AnswersComposite implements AnswersComponent {
         for (Answers answer : questions_answereds) {
             System.out.println("\n" + answer.getInfo());
         }
+    }
+
+    @Override
+    public Student getStudent() {
+        return student;
     }
 
 }

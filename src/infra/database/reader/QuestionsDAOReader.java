@@ -1,15 +1,15 @@
-package infra.database;
+package infra.database.reader;
 
 import business.model.questions.Questions;
+import infra.database.MysqlConnect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsDAO {
+public class QuestionsDAOReader {
 
-    public static List<Questions> saveQuestionsList() throws Exception {
+    public static List<Questions> loadQuestions() throws Exception {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT statment, alternative1, alternative2, alternative3, alternative4, alternative5, correct");
         sql.append("FROM questions");

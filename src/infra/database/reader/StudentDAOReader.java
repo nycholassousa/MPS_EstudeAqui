@@ -1,14 +1,15 @@
-package infra.database;
+package infra.database.reader;
 
 import business.model.student.Student;
+import infra.database.MysqlConnect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDAO {
+public class StudentDAOReader {
 
-    public List<Student> saveStudentsList() throws Exception {
+    public List<Student> loadStudents() throws Exception {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT email, password");
         sql.append("FROM students");

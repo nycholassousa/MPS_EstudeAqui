@@ -1,5 +1,6 @@
 package infra.database;
 
+import infra.database.reader.StudentDAOReader;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -27,11 +28,11 @@ public class StudentDAOTest {
     }
 
     /**
-     * Test of saveStudentsList method, of class UserDAO.
+     * Test of loadStudents method, of class UserDAO.
      */
     @Test
     public void testBuscar() throws Exception {
-       StudentDAO userdao = new StudentDAO();
-       userdao.saveStudentsList();
+       StudentDAOReader userdao = new StudentDAOReader();
+       userdao.loadStudents();
     }
 }
