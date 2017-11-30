@@ -7,23 +7,23 @@ import java.util.Scanner;
 
 public class LoginStudentCommand implements Command {
 
-    private Student user;
+    private Student student;
     private String login, password;
 
     public LoginStudentCommand(Student user, String login) {
-        this.user = user;
+        this.student = user;
         this.login = login;
     }
 
     @Override
     public void execute() throws InvalidLoginException {
-        if (user.getState()instanceof LogoutState) {
+        if (student.getState()instanceof LogoutState) {
             System.out.println("Erro: the user it is not logged");
 
             System.out.println("Digit your password");
             try (Scanner scan = new Scanner(System.in)) {
                 String inserted_pass = scan.next();
-                user.login(login, inserted_pass);
+                student.login(login, inserted_pass);
             }
         }
     }

@@ -1,13 +1,7 @@
 package view;
 
-import business.control.StudentControl;
-import infra.adapter.AdapterImport;
-import infra.adapter.JsonImport;
 import infra.database.MysqlConnect;
 import business.model.exceptions.StudentNotExistException;
-import business.model.student.Student;
-import com.mysql.jdbc.MySQLConnection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Main {

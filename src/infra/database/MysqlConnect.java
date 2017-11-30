@@ -1,7 +1,11 @@
 package infra.database;
 
-import java.sql.*;
+
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * @desc A singleton database access class for MySQL

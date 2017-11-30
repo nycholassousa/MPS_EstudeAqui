@@ -10,6 +10,11 @@ public class AnswersComposite implements AnswersComponent {
     private ArrayList<AnswersComponent> component;
     private ArrayList<Answers> questions_answereds;
 
+    /**
+     *
+     * @param student
+     * @param name
+     */
     public AnswersComposite(Student student, String name) {
         this.student = student;
         this.name = name;

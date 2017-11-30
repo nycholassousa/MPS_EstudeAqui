@@ -30,10 +30,8 @@ public class AnswersFacade {
 
             command = new AddAnswerCommand(user.getComposite(), object);
             command.execute();
-        } catch (InvalidLoginException ile) {
+        } catch (InvalidLoginException | InvalidTypeException ile) {
             System.out.println(ile.getMessage());
-        } catch (InvalidTypeException ite) {
-            System.out.println(ite.getMessage());
         }
     }
 
@@ -49,10 +47,8 @@ public class AnswersFacade {
 
             command = new RemoveAnswerCommand(user.getComposite(), object);
             command.execute();
-        } catch (InvalidLoginException ile) {
+        } catch (InvalidLoginException | InvalidTypeException ile) {
             System.out.println(ile.getMessage());
-        } catch (InvalidTypeException ite) {
-            System.out.println(ite.getMessage());
         }
 
     }
@@ -66,10 +62,8 @@ public class AnswersFacade {
             command.execute();
             command = new ShowAnswersCommand(user.getComposite());
             command.execute();
-        }catch(InvalidLoginException ile){
+        }catch(InvalidLoginException | InvalidTypeException ile){
             System.out.println(ile.getMessage());
-        }catch(InvalidTypeException ite){
-            System.out.println(ite.getMessage());
         }
         
     }

@@ -9,6 +9,9 @@ import java.io.IOException;
 Example of CSV to import:
 
 É extraido da seringueira,Chocolate donut,Malte,Latex,Leite,Laca Vegetal,2
+
+É necessário ter 7 elementos, separado entre vírgula:
+1,2,3,4,5,6,7
 */
 
 public class CsvImport implements AdapterImport {
