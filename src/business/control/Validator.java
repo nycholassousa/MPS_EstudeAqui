@@ -5,13 +5,13 @@ import business.model.exceptions.PasswordValidationException;
 
 public class Validator {
 
-    public static boolean validateEmail(String login) throws LoginValidationException {
-        int size = login.length();
+    public static boolean validateEmail(String email) throws LoginValidationException {
+        int size = email.length();
         if (size > 20) {
-            throw new LoginValidationException("Login invalido: comprimento superior a 20");
+            throw new LoginValidationException("Email invalido: comprimento superior a 20");
         }
-        if (login.equals("")) {
-            throw new LoginValidationException("Login invalido: login vazio");
+        if (email.equals("")) {
+            throw new LoginValidationException("Email invalido: email vazio");
         }
 
         return true; //Usado para o teste unitario

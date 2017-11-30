@@ -37,7 +37,7 @@ public class StudentControl {
             Student student = getStudent(email);
             student.login(email, password);
         } catch (StudentNotExistException ex) {
-            System.out.println("This user do not exist");
+            System.out.println("This student do not exist");
         }
     }
 

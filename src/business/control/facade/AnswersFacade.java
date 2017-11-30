@@ -20,15 +20,15 @@ public class AnswersFacade {
     static private Caretaker caretaker = Caretaker.getInstance();
 
     static public void addAnswer(String email, Object object) throws StudentNotExistException {
-        Student user = StudentControl.getStudent(email);
-        command = new LoginStudentCommand(user, email);
+        Student student = StudentControl.getStudent(email);
+        command = new LoginStudentCommand(student, email);
 
         try {
             command.execute();
 
-            caretaker.addMemento(user.storeAnswersMemento());
+            caretaker.addMemento(student.storeAnswersMemento());
 
-            command = new AddAnswerCommand(user.getComposite(), object);
+            command = new AddAnswerCommand(student.getComposite(), object);
             command.execute();
         } catch (InvalidLoginException | InvalidTypeException ile) {
             System.out.println(ile.getMessage());
@@ -37,15 +37,15 @@ public class AnswersFacade {
 
     static public void removeAnswer(String email, Object object) throws StudentNotExistException {
 
-        Student user = StudentControl.getStudent(email);
-        command = new LoginStudentCommand(user, email);
+        Student student = StudentControl.getStudent(email);
+        command = new LoginStudentCommand(student, email);
 
         try {
             command.execute();
 
-            caretaker.addMemento(user.storeAnswersMemento());
+            caretaker.addMemento(student.storeAnswersMemento());
 
-            command = new RemoveAnswerCommand(user.getComposite(), object);
+            command = new RemoveAnswerCommand(student.getComposite(), object);
             command.execute();
         } catch (InvalidLoginException | InvalidTypeException ile) {
             System.out.println(ile.getMessage());
@@ -55,12 +55,12 @@ public class AnswersFacade {
     
     static public void showAnswer(String email) throws StudentNotExistException{
         
-        Student user = StudentControl.getStudent(email);
-        command = new LoginStudentCommand(user, email);
+        Student student = StudentControl.getStudent(email);
+        command = new LoginStudentCommand(student, email);
         
         try{
             command.execute();
-            command = new ShowAnswersCommand(user.getComposite());
+            command = new ShowAnswersCommand(student.getComposite());
             command.execute();
         }catch(InvalidLoginException | InvalidTypeException ile){
             System.out.println(ile.getMessage());

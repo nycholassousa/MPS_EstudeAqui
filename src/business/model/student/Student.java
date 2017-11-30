@@ -110,7 +110,7 @@ public class Student {
         if (state instanceof LoginState) {
             return new Memento(composite);
         } else {
-            throw new InvalidLoginException("The user must be logged");
+            throw new InvalidLoginException("The student must be logged");
         }
     }
 
