@@ -4,30 +4,28 @@ import business.control.StudentControl;
 import business.control.questions.factory.QuestionsFactory;
 import business.control.questions.factory.QuestionsFromCsv;
 import business.control.questions.factory.QuestionsFromJson;
+import business.model.questions.Questions;
 import java.sql.SQLException;
 
 public class RegisterFacade {
 
     private static QuestionsFactory questionsFactory;
 
-    public static void createQuestion(int type, String importFile) throws SQLException {
+    public static Questions createQuestion(int type) throws SQLException {
         switch (type) {
             case 1:
                 questionsFactory = new QuestionsFromJson();
-                questionsFactory.createQuestion(importFile);
-                break;
+                return questionsFactory.createQuestion();
             case 2:
                 questionsFactory = new QuestionsFromCsv();
-                questionsFactory.createQuestion(importFile);
-                break;
+                return questionsFactory.createQuestion();
             default:
-                break;
+                return null;
         }
     }
 
     public static void registerStudent(String email, String password) {
         StudentControl.addStudent(email, password, 0);
     }
-    
-    
+
 }

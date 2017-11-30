@@ -6,23 +6,12 @@ import infra.adapter.CsvImport;
 import infra.database.MysqlConnect;
 import java.sql.SQLException;
 
-public class QuestionsFromCsv implements QuestionsFactory{
+public class QuestionsFromCsv implements QuestionsFactory {
 
     @Override
-    public Questions createQuestion(String importFile) throws SQLException {
-        try {
-            MysqlConnect mysql = MysqlConnect.getDbCon();
-            AdapterImport adapter = new CsvImport();
-            Questions question = adapter.parseData(importFile);
-
-            mysql.insert("INSERT INTO `questions` (`statment`, `alternative1`, `alternative2`, `alternative3`, `alternative4`, `alternative5`, `correct`) VALUES "
-                    + "('" + question.getStatment() + "', '" + question.getAlternative1() + "', '" + question.getAlternative2() + "', '" + question.getAlternative3() + "', '"
-                    + question.getAlternative4() + "', '" + question.getAlternative5() + "', '" + question.getCorrect() + "')");
-
-            return question;
-        } catch (SQLException error) {
-            System.out.println("Error: " + error);
-        }
-        return null;
+    public Questions createQuestion() throws SQLException {
+        AdapterImport adapter = new CsvImport();
+        Questions question = adapter.parseData("import.csv");
+        return question;
     }
 }

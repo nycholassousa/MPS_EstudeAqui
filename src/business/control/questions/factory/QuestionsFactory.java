@@ -5,6 +5,6 @@ import java.sql.SQLException;
 
 public interface QuestionsFactory {
 
-    public Questions createQuestion(String importFile) throws SQLException;
+    public Questions createQuestion() throws SQLException;
 
 }
