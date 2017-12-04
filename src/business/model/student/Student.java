@@ -2,8 +2,8 @@ package business.model.student;
 
 import business.control.Validator;
 import business.model.answers.AnswersComposite;
-import business.model.exceptions.InvalidLoginException;
-import business.model.exceptions.LoginValidationException;
+import business.model.exceptions.InvalidEmailException;
+import business.model.exceptions.EmailValidationException;
 import business.model.exceptions.PasswordValidationException;
 import business.model.memento.Memento;
 import business.model.student.state.*;
@@ -84,7 +84,7 @@ public class Student {
         try {
             Validator.validateEmail(email);
             this.email = email;
-        } catch (LoginValidationException uve) {
+        } catch (EmailValidationException uve) {
             System.out.println(uve.getMessage());
         }
     }
@@ -106,20 +106,20 @@ public class Student {
         return "Email: " + this.email + "\nPassword: " + this.password;
     }
 
-    public Memento storeAnswersMemento() throws InvalidLoginException {
+    public Memento storeAnswersMemento() throws InvalidEmailException {
         if (state instanceof LoginState) {
             return new Memento(composite);
         } else {
-            throw new InvalidLoginException("The student must be logged");
+            throw new InvalidEmailException("The student must be logged");
         }
     }
 
-    public boolean login(String email, String password) throws InvalidLoginException {
+    public boolean login(String email, String password) throws InvalidEmailException {
         if (this.email.equals(email) && this.password.equals(password)) {
             state.login(this.email, this.password);
             return true;
         } else {
-            throw new InvalidLoginException();
+            throw new InvalidEmailException();
         }
     }
 }

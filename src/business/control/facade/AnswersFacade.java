@@ -6,7 +6,7 @@ import business.control.commands.LoginStudentCommand;
 import business.control.commands.ShowAnswersCommand;
 import business.control.commands.AddAnswerCommand;
 import business.control.commands.RemoveAnswerCommand;
-import business.model.exceptions.InvalidLoginException;
+import business.model.exceptions.InvalidEmailException;
 import business.model.exceptions.InvalidTypeException;
 import business.model.exceptions.StudentNotExistException;
 import business.model.memento.Caretaker;
@@ -28,7 +28,7 @@ public class AnswersFacade {
 
             command = new AddAnswerCommand(student.getComposite(), object);
             command.execute();
-        } catch (InvalidLoginException | InvalidTypeException ile) {
+        } catch (InvalidEmailException | InvalidTypeException ile) {
             System.out.println(ile.getMessage());
         }
     }
@@ -45,7 +45,7 @@ public class AnswersFacade {
 
             command = new RemoveAnswerCommand(student.getComposite(), object);
             command.execute();
-        } catch (InvalidLoginException | InvalidTypeException ile) {
+        } catch (InvalidEmailException | InvalidTypeException ile) {
             System.out.println(ile.getMessage());
         }
 
@@ -60,7 +60,7 @@ public class AnswersFacade {
             command.execute();
             command = new ShowAnswersCommand(student.getComposite());
             command.execute();
-        }catch(InvalidLoginException | InvalidTypeException ile){
+        }catch(InvalidEmailException | InvalidTypeException ile){
             System.out.println(ile.getMessage());
         }
         

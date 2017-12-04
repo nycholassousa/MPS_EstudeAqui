@@ -1,17 +1,17 @@
 package business.control;
 
-import business.model.exceptions.LoginValidationException;
+import business.model.exceptions.EmailValidationException;
 import business.model.exceptions.PasswordValidationException;
 
 public class Validator {
 
-    public static boolean validateEmail(String email) throws LoginValidationException {
+    public static boolean validateEmail(String email) throws EmailValidationException {
         int size = email.length();
         if (size > 20) {
-            throw new LoginValidationException("Email invalido: comprimento superior a 20");
+            throw new EmailValidationException("Email invalido: comprimento superior a 20");
         }
         if (email.equals("")) {
-            throw new LoginValidationException("Email invalido: email vazio");
+            throw new EmailValidationException("Email invalido: email vazio");
         }
 
         return true; //Usado para o teste unitario

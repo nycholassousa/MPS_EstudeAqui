@@ -1,6 +1,6 @@
 package business.control;
 
-import business.model.exceptions.LoginValidationException;
+import business.model.exceptions.EmailValidationException;
 import business.model.exceptions.PasswordValidationException;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -52,13 +52,13 @@ public class ValidatorTest {
         try {
             Validator.validateEmail(invalidEmail1);
             fail("LoginValidationException occurs here");
-        } catch (LoginValidationException lve) {
+        } catch (EmailValidationException lve) {
         }
 
         try {
             Validator.validateEmail(invalidEmail2);
             fail("LoginValidationException occurs here");
-        } catch (LoginValidationException lve) {
+        } catch (EmailValidationException lve) {
         }
     }
 

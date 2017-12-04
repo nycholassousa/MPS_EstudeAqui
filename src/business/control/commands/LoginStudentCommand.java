@@ -1,6 +1,6 @@
 package business.control.commands;
 
-import business.model.exceptions.InvalidLoginException;
+import business.model.exceptions.InvalidEmailException;
 import business.model.student.Student;
 import business.model.student.state.LogoutState;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class LoginStudentCommand implements Command {
     }
 
     @Override
-    public void execute() throws InvalidLoginException {
+    public void execute() throws InvalidEmailException {
         if (student.getState()instanceof LogoutState) {
             System.out.println("Erro: the student it is not logged");
 
