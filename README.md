@@ -33,7 +33,10 @@ Abaixo tem uma lista dos requisitos não funcionais implementados no sistema:
 * Disponibilidade
 * Tecnologia para Notificações
 
+## Documento de Requisitos
+Caso tenha interesse em ver como é o documento de requisitos do projeto, acesse [este link](https://github.com/nycholassousa/MPS_EstudeAqui/blob/master/MPS%20-%20EstudeAqui.pdf)
+
 ## Diagrama de Classes
-No link abaixo você pode conferir a imagem do diagrama de classes com uma boa resolução:
-[Link aqui](https://raw.githubusercontent.com/nycholassousa/MPS_EstudeAqui/master/imgs/class.jpg)
+[Neste link](https://raw.githubusercontent.com/nycholassousa/MPS_EstudeAqui/master/imgs/class.jpg) você pode conferir a imagem do diagrama de classes com uma boa resolução.
+
 
