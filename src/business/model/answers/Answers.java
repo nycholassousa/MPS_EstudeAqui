@@ -2,9 +2,9 @@ package business.model.answers;
 
 public class Answers {
 
-    public int idStudent;
-    public int idQuestion;
-    public int answers;
+    private int idStudent;
+    private int idQuestion;
+    private int answers;
 
     public Answers() {
 

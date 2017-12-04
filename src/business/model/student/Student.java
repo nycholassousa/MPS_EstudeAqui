@@ -12,7 +12,7 @@ public class Student {
 
     private String email;
     private String password;
-    public int admin;
+    private int admin;
     private AnswersComposite composite;
 
     //Uso do Padrão State
