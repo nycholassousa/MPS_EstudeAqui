@@ -2,15 +2,9 @@ package business.model.report;
 
 import business.control.AnswersControl;
 import business.control.QuestionsControl;
-import business.model.answers.Answers;
-import business.model.questions.Questions;
 import infra.database.reader.AnswersDAOReader;
-import java.util.ArrayList;
 
 public class ReportProgram extends ReportTemplate {
-
-    private ArrayList<Answers> answers = new ArrayList<>();
-    private ArrayList<Questions> questions = new ArrayList<>();
 
     @Override
     public void createReport(String email) {

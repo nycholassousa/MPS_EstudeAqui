@@ -2,18 +2,12 @@ package business.model.report;
 
 import business.control.AnswersControl;
 import business.control.QuestionsControl;
-import business.model.answers.Answers;
-import business.model.questions.Questions;
-import java.util.ArrayList;
 import com.gnostice.pdfone.PdfDocument;
 import com.gnostice.pdfone.PdfException;
 import infra.database.reader.AnswersDAOReader;
 import java.io.IOException;
 
 public class ReportPDF extends ReportTemplate {
-
-    private ArrayList<Answers> answers = new ArrayList<Answers>();
-    private ArrayList<Questions> questions = new ArrayList<Questions>();
 
     @Override
     public void createReport(String email) {
