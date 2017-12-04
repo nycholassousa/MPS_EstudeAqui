@@ -6,7 +6,6 @@ import business.control.commands.LoginStudentCommand;
 import business.control.commands.ShowAnswersCommand;
 import business.control.commands.AddAnswerCommand;
 import business.control.commands.RemoveAnswerCommand;
-import business.model.answers.AnswersComponent;
 import business.model.exceptions.InvalidLoginException;
 import business.model.exceptions.InvalidTypeException;
 import business.model.exceptions.StudentNotExistException;
@@ -16,7 +15,6 @@ import business.model.student.Student;
 public class AnswersFacade {
 
     static private Command command;
-    static private AnswersComponent component;
     static private Caretaker caretaker = Caretaker.getInstance();
 
     static public void addAnswer(String email, Object object) throws StudentNotExistException {

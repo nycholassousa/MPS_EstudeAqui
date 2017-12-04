@@ -35,19 +35,19 @@ public class RegisterFacadeTest {
     public void testCreateQuestion() {
         System.out.println("createQuestion");
         try {
-            RegisterFacade.createQuestion(1, "import.json");
-            RegisterFacade.createQuestion(2, "import.json");
+            RegisterFacade.createQuestion(1); //Criar Questão importando de um arquivo JSON
+            RegisterFacade.createQuestion(2); //Criar Questão importando de um arquivo CSV
         } catch (Exception e) {
             fail();
         }
     }
 
     /**
-     * Test of registerStudent method, of class RegisterFacade.
+     * Test of createStudent method, of class RegisterFacade.
      */
     @Test
-    public void testRegisterStudent() {
-        System.out.println("registerStudent");
+    public void testCreateStudent() {
+        System.out.println("createStudent");
         //TODO
     }
 

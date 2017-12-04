@@ -4,14 +4,15 @@ import business.control.StudentControl;
 import business.control.questions.factory.QuestionsFactory;
 import business.control.questions.factory.QuestionsFromCsv;
 import business.control.questions.factory.QuestionsFromJson;
+import business.model.exceptions.StudentNotExistException;
 import business.model.questions.Questions;
-import java.sql.SQLException;
+import business.model.student.Student;
 
 public class RegisterFacade {
 
     private static QuestionsFactory questionsFactory;
 
-    public static Questions createQuestion(int type) throws SQLException {
+    public static Questions createQuestion(int type) {
         switch (type) {
             case 1:
                 questionsFactory = new QuestionsFromJson();
@@ -24,8 +25,9 @@ public class RegisterFacade {
         }
     }
 
-    public static void registerStudent(String email, String password) {
+    public static Student createStudent(String email, String password) throws StudentNotExistException {
         StudentControl.addStudent(email, password, 0);
+        return StudentControl.getStudent(email);
     }
 
 }
