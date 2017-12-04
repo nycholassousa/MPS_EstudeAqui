@@ -1,5 +1,7 @@
 package infra.database;
 
+import business.control.StudentControl;
+import business.model.student.Student;
 import infra.database.reader.StudentDAOReader;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -32,7 +34,11 @@ public class StudentDAOTest {
      */
     @Test
     public void testBuscar() throws Exception {
-       StudentDAOReader userdao = new StudentDAOReader();
-       userdao.loadStudents();
+       StudentDAOReader studentDAO = new StudentDAOReader();
+       studentDAO.load();
+       
+       for (Student student : StudentControl.studentsList) {
+            System.out.println(student);
+        }
     }
 }

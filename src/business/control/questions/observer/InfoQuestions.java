@@ -1,5 +1,6 @@
 package business.control.questions.observer;
 
+import business.control.QuestionsControl;
 import business.model.questions.Questions;
 import infra.database.reader.QuestionsDAOReader;
 import java.io.BufferedReader;
@@ -17,8 +18,9 @@ public class InfoQuestions {
         try {
             int questions_sizeDAO;
             int questions_sizeFile;
-            
-            List<Questions> questionsList = QuestionsDAOReader.loadQuestions();
+            QuestionsDAOReader.load();
+
+            List<Questions> questionsList = QuestionsControl.questions;
             questions_sizeDAO = questionsList.size();
 
             BufferedReader br = new BufferedReader(new FileReader("info.txt"));

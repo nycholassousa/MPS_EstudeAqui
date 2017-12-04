@@ -4,21 +4,21 @@ import business.control.AnswersControl;
 import business.control.QuestionsControl;
 import business.model.answers.Answers;
 import business.model.questions.Questions;
+import infra.database.reader.AnswersDAOReader;
 import java.util.ArrayList;
 
 public class ReportProgram extends ReportTemplate {
 
-    private ArrayList<Answers> answers = new ArrayList<Answers>();
-    private ArrayList<Questions> questions = new ArrayList<Questions>();
+    private ArrayList<Answers> answers = new ArrayList<>();
+    private ArrayList<Questions> questions = new ArrayList<>();
 
     @Override
     public void createReport(String email) {
-        AnswersControl.getAnswersFromStudent(email);
-        answers = AnswersControl.getAnswers();
+        AnswersDAOReader.load(email);
+        answers = AnswersControl.answers;
         questions_answered = answers.size();
 
-        QuestionsControl.getAllQuestions();
-        questions = QuestionsControl.getQuestions();
+        questions = QuestionsControl.questions;
         total_questions = questions.size();
 
         for (int i = 0; i < answers.size(); i++) {

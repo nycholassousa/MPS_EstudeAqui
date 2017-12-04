@@ -18,7 +18,7 @@ public class AnswersFacade {
     static private Caretaker caretaker = Caretaker.getInstance();
 
     static public void addAnswer(String email, Object object) throws StudentNotExistException {
-        Student student = StudentControl.getStudent(email);
+        Student student = StudentControl.student;
         command = new LoginStudentCommand(student, email);
 
         try {
@@ -35,7 +35,7 @@ public class AnswersFacade {
 
     static public void removeAnswer(String email, Object object) throws StudentNotExistException {
 
-        Student student = StudentControl.getStudent(email);
+        Student student = StudentControl.student;
         command = new LoginStudentCommand(student, email);
 
         try {
@@ -53,7 +53,7 @@ public class AnswersFacade {
     
     static public void showAnswer(String email) throws StudentNotExistException{
         
-        Student student = StudentControl.getStudent(email);
+        Student student = StudentControl.student;
         command = new LoginStudentCommand(student, email);
         
         try{

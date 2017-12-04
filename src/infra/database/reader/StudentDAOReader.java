@@ -1,41 +1,43 @@
 package infra.database.reader;
 
+import business.control.StudentControl;
 import business.model.student.Student;
 import infra.database.MysqlConnect;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
 public class StudentDAOReader {
 
-    public List<Student> loadStudents() throws Exception {
-        StringBuilder sql = new StringBuilder();
-        sql.append("SELECT email, password");
-        sql.append("FROM students");
+    public void load(String email) {
+        try {
+            MysqlConnect mysql = MysqlConnect.getDbCon();
+            ResultSet result = mysql.query("SELECT * FROM `students` WHERE email = " + email + ";");
+            while (result.next()) {
+                StudentControl.student.setEmail(result.getString("email"));
+                StudentControl.student.setPassword(result.getString("password"));
+                StudentControl.student.setAdmin(Integer.parseInt(result.getString("page_admin")));
+            }
 
-        MysqlConnect mysql = MysqlConnect.getDbCon();
-        PreparedStatement sqlCommand = mysql.conn.prepareStatement(sql.toString());
+        } catch (SQLException error) {
+            System.out.println("Error: " + error);
+        }
+    }
 
-        ResultSet result = sqlCommand.executeQuery();
-
-        List<Student> studentList = new ArrayList<>();
-
-        while (result.next()) {
+    public void load() {
+        try {
+            MysqlConnect mysql = MysqlConnect.getDbCon();
             Student student = new Student();
-            student.setEmail(result.getString("email"));
-            student.setPassword(result.getString("password"));
+            ResultSet result = mysql.query("SELECT * FROM `students`;");
+            while (result.next()) {
+                student.setEmail(result.getString("email"));
+                student.setPassword(result.getString("password"));
+                student.setAdmin(Integer.parseInt(result.getString("page_admin")));
+                
+                StudentControl.studentsList.add(student);
+            }
 
-            studentList.add(student);
+        } catch (SQLException error) {
+            System.out.println("Error: " + error);
         }
-
-        for (Student student : studentList) {
-            System.out.println(student.getInfo());
-        }
-
-        result.close();
-        sqlCommand.close();
-
-        return studentList;
     }
 }

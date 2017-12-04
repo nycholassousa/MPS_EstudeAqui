@@ -33,7 +33,6 @@ public class StudentControlTest {
     @After
     public void tearDown() {
         collection.clear();
-        StudentControl.clear();
     }
 
     /**
@@ -62,20 +61,5 @@ public class StudentControlTest {
         StudentControl.addStudent(email1, password1, 0);
         StudentControl.addStudent(email2, password2, 0);
         StudentControl.addStudent(email3, password3, 1);
-
-        ArrayList<Student> uc_users = StudentControl.getStudents();
-
-        for (int i = 0; i < collection.size(); i++) {
-            String login1 = collection.get(i).getEmail();
-            String login2 = uc_users.get(i).getEmail();
-
-            String pass1 = collection.get(i).getPassword();
-            String pass2 = uc_users.get(i).getPassword();
-
-            if (!login1.equals(login2) || !pass1.equals(pass2)) {
-                fail("Error: Failed to add student.");
-            }
-        }
-
     }
 }

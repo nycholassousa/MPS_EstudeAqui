@@ -27,7 +27,7 @@ public class RegisterFacade {
 
     public static Student createStudent(String email, String password) throws StudentNotExistException {
         StudentControl.addStudent(email, password, 0);
-        return StudentControl.getStudent(email);
+        return StudentControl.student;
     }
 
 }

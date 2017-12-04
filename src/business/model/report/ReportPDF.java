@@ -7,6 +7,7 @@ import business.model.questions.Questions;
 import java.util.ArrayList;
 import com.gnostice.pdfone.PdfDocument;
 import com.gnostice.pdfone.PdfException;
+import infra.database.reader.AnswersDAOReader;
 import java.io.IOException;
 
 public class ReportPDF extends ReportTemplate {
@@ -16,12 +17,11 @@ public class ReportPDF extends ReportTemplate {
 
     @Override
     public void createReport(String email) {
-        AnswersControl.getAnswersFromStudent(email);
-        answers = AnswersControl.getAnswers();
+        AnswersDAOReader.load(email);
+        answers = AnswersControl.answers;
         questions_answered = answers.size();
 
-        QuestionsControl.getAllQuestions();
-        questions = QuestionsControl.getQuestions();
+        questions = QuestionsControl.questions;
         total_questions = questions.size();
 
         for (int i = 0; i < answers.size(); i++) {
