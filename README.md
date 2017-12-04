@@ -33,6 +33,21 @@ Abaixo tem uma lista dos requisitos não funcionais implementados no sistema:
 * Disponibilidade
 * Tecnologia para Notificações
 
+## Padrões de Projeto Utilizados
+
+Abaixo tem uma lista com os padrões de projeto utilizados no sistema:
+
+* Adapter
+* Template Method
+* Facade
+* Factory Method
+* Command
+* Memento
+* Singleton
+* Observer
+* State
+* Composite
+
 ## Documento de Requisitos
 Caso tenha interesse em ver como é o documento de requisitos do projeto, acesse [este link](https://github.com/nycholassousa/MPS_EstudeAqui/blob/master/MPS%20-%20EstudeAqui.pdf)
 
