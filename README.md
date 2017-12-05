@@ -51,6 +51,8 @@ Abaixo tem uma lista com os padrões de projeto utilizados no sistema:
 ## Documento de Requisitos
 Caso tenha interesse em ver como é o documento de requisitos do projeto, acesse [este link](https://github.com/nycholassousa/MPS_EstudeAqui/blob/master/MPS%20-%20EstudeAqui.pdf)
 
+Observação: Por algum motivo, o github lê a parte das páginas com algum erro, aconselho a baixar o pdf para lê-lo.
+
 ## Diagrama de Classes
 [Neste link](https://raw.githubusercontent.com/nycholassousa/MPS_EstudeAqui/master/imgs/class.jpg) você pode conferir a imagem do diagrama de classes com uma boa resolução.
 
